@@ -14,6 +14,7 @@ namespace UserRegistration
                 Console.WriteLine("2.Last Name Validation");
                 Console.WriteLine("3.Email Validation");
                 Console.WriteLine("4.Mobile Number Validation");
+                Console.WriteLine("5.Password Validation");
                 Console.WriteLine("0.Exit");
                 Console.WriteLine("Choose an option : ");
                 int option = Convert.ToInt32(Console.ReadLine());
@@ -31,6 +32,9 @@ namespace UserRegistration
                         break;
                     case 4:
                         user.ValidateMobileNumber();
+                        break;
+                    case 5:
+                        user.ValidatePassword();
                         break;
                     case 0:
                         flag = false;
