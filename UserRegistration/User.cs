@@ -9,7 +9,8 @@ namespace UserRegistration
 {
     class User
     {
-        string pattern = "^[A-Z]{1}[A-Za-z]{2,}$";
+        string namePattern = "^[A-Z]{1}[A-Za-z]{2,}$";
+        string emailPattern = "^abc.[A-Za-z1-9]*@bl.co.[a-z]*$";
         /// <summary>
         /// UC - 1  Validating the First Name
         /// </summary>
@@ -17,7 +18,7 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter a First Name to validate : ");
             string firstName = Console.ReadLine();
-            Regex regex = new Regex(pattern);
+            Regex regex = new Regex(namePattern);
             bool result = regex.IsMatch(firstName);
             if (result)
                 Console.WriteLine("It is valid");
@@ -32,8 +33,22 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter a Last Name to validate : ");
             string lastName = Console.ReadLine();
-            Regex regex = new Regex(pattern);
+            Regex regex = new Regex(namePattern);
             bool result = regex.IsMatch(lastName);
+            if (result)
+                Console.WriteLine("It is valid");
+            else
+                Console.WriteLine("It is not valid");
+        }
+        /// <summary>
+        /// UC - 3  Validating the Email
+        /// </summary>
+        public void ValidateEmail()
+        {
+            Console.WriteLine("Enter an Email to validate : ");
+            string email = Console.ReadLine();
+            Regex regex = new Regex(emailPattern);
+            bool result = regex.IsMatch(email);
             if (result)
                 Console.WriteLine("It is valid");
             else
