@@ -7,7 +7,7 @@ namespace UserRegistration
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("--------------User Registration----------------");
+            Console.WriteLine("User reagistration details");
             bool flag = true;
             while (flag)
             {
