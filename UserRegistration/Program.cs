@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace UserRegistration
 {
     class Program
@@ -22,22 +21,53 @@ namespace UserRegistration
                 Console.WriteLine("Choose an option : ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 User user = new User();
+                bool result;
                 switch (option)
                 {
                     case 1:
-                        user.ValidateFirstName();
+                        Console.WriteLine("Enter first name : ");
+                        string firstName = Console.ReadLine();
+                        result = user.ValidateFirstName(firstName);
+                        if (result)
+                            Console.WriteLine("It is valid");
+                        else
+                            Console.WriteLine("It is not valid");
                         break;
                     case 2:
-                        user.ValidateLastName();
+                        Console.WriteLine("Enter last name : ");
+                        string lastName = Console.ReadLine();
+                        result = user.ValidateLastName(lastName);
+                        if (result)
+                            Console.WriteLine("It is valid");
+                        else
+                            Console.WriteLine("It is not valid");
                         break;
                     case 3:
-                        user.ValidateEmail();
+                        Console.WriteLine("Enter email");
+                        string email = Console.ReadLine();
+                        result = user.ValidateEmail(email);
+                        if (result)
+                            Console.WriteLine("It is valid");
+                        else
+                            Console.WriteLine("It is not valid");
                         break;
                     case 4:
-                        user.ValidateMobileNumber();
+                        Console.WriteLine("Enter a Mobile Number to validate : ");
+                        string mobileNumber = Console.ReadLine();
+                        result = user.ValidateMobileNumber(mobileNumber);
+                        if (result)
+                            Console.WriteLine("It is valid");
+                        else
+                            Console.WriteLine("It is not valid");
                         break;
                     case 5:
-                        user.ValidatePassword();
+                        Console.WriteLine("Enter a Password to validate : ");
+                        string password = Console.ReadLine();
+                        result = user.ValidatePassword(password);
+                        if (result)
+                            Console.WriteLine("It is valid");
+                        else
+                            Console.WriteLine("It is not valid");
                         break;
                     case 6:
                         // Validating Sample Emails............
@@ -55,7 +85,7 @@ namespace UserRegistration
                         };
                         foreach (string emails in sampleEmailList)
                         {
-                            if (user.ValidateSampleEmail(emails))
+                            if (user.ValidateEmail(emails))
                             {
                                 Console.WriteLine(" [ " + emails + " ]\t is Valid Email");
                             }
