@@ -132,5 +132,81 @@ namespace UnitTest
         {
             Assert.IsTrue(user.ValidateEmail(email));
         }
+        [TestMethod]
+        public void FirstNameValidationShouldReturnException()
+        {
+            try
+            {
+                //Arrange
+                string firstName = "Ajith";
+                //Act
+                bool result = user.ValidateFirstName(firstName);
+            }
+            catch (InvalidUserException ex)
+            {
+                //Assert
+                Assert.AreEqual("It is Invalid", ex.Message);
+            }
+        }
+        [TestMethod]
+        public void LastNameValidationShouldReturnException()
+        {
+            try
+            {
+                //Arrange
+                string lastName = "Kumar";
+                //Act
+                bool result = user.ValidateLastName(lastName);
+            }
+            catch (InvalidUserException ex)
+            {
+                //Assert
+                Assert.AreEqual("It is Invalid", ex.Message);
+            }
+        }
+        [TestMethod]
+        public void EmailValidationShouldReturnException()
+        {
+            try
+            {
+                //Arrange
+                string email = "Ajith43@gmail.com";
+                //Act
+                bool result = user.ValidateEmail(email);
+            }
+            catch (InvalidUserException ex)
+            {
+                //Assert
+                Assert.AreEqual("It is Invalid", ex.Message);
+            }
+        }
+        [TestMethod]
+        public void MobileNumberValidationShouldReturnException()
+        {
+            try
+            {
+                string mobileNumber = "91 9995559955";
+                bool result = user.ValidateMobileNumber(mobileNumber);
+            }
+            catch (InvalidUserException ex)
+            {
+                Assert.AreEqual("It is Invalid", ex.Message);
+            }
+        }
+        [TestMethod]
+        public void PasswordValidationShouldReturnException()
+        {
+            try
+            {
+                //Arrange
+                string password = "Ajith@123";
+                //Act
+                bool result = user.ValidatePassword(password);
+            }
+            catch (InvalidUserException ex)
+            {
+                Assert.AreEqual("It is Invalid", ex.Message);
+            }
+        }
     }
 }
